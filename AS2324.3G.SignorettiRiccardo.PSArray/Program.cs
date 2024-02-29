@@ -14,7 +14,7 @@ class Program
 
         CaricaVettori(ref voti, ref pesi, nVoti);
         StampaVotiPesi(voti, pesi, nVoti);
-        StampaVotiDispariMaggiori4(ref voti, ref pesi, nVoti);
+        
         Console.ReadLine();
 
     }
@@ -37,16 +37,6 @@ class Program
             pesi[i] = rnd.Next(0, 101);
         }
     }
-    static void StampaVotiDispariMaggiori4(ref double[] voti, ref int[] pesi, int nVoti)
-    {
-        Console.WriteLine("\nVoti maggiori di 4 in posizione dispari: ");
-        for (int i = 0; i < nVoti; i++)
-        {
-            if (voti[i] > 4 && i % 2 == 0) // si verifica se il voto in posizione i è maggiore di 4 e se la posizione è dispari
-            {
-                Console.WriteLine($"Voto: {voti[i]} - Peso: {pesi[i]}");
-            }
-        }
-    }
+    
 
 }
