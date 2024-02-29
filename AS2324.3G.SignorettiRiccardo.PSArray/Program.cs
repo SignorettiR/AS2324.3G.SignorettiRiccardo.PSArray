@@ -22,7 +22,9 @@ class Program
         Console.WriteLine($"\nMedia Ponderata: {media}");  
         Console.WriteLine($"Voto massimo: {max} - Posizione: {posmax}");
         Console.WriteLine($"Voto minimo: {min} - Posizione: {posmin}");
-
+        Console.WriteLine("Inserisci un voto:");
+        double voto = Convert.ToDouble(Console.ReadLine());
+        ElencoVotiNellIntorno(voti, pesi, nVoti, voto); 
         Console.ReadLine();
 
     }
@@ -81,6 +83,17 @@ class Program
 
         return sommaVoti / sommaPonderata;  //media
     }
-
+    static void ElencoVotiNellIntorno(double[] voti, int[] pesi, int nVoti, double voto)
+    {
+        double tolleranza = 0.5;
+        Console.WriteLine($"\nElenco dei voti nell'intorno di +/- {tolleranza} rispetto al voto {voto}:");
+        for (int i = 0; i < nVoti; i++)
+        {
+            if (voti[i] >= voto - tolleranza && voti[i] <= voto + tolleranza)
+            {
+                Console.WriteLine($"Voto: {voti[i]}, Peso: {pesi[i]}");
+            }
+        }
+    } 
 
 }
