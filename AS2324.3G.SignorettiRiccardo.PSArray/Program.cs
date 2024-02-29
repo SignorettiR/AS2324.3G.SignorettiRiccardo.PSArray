@@ -12,14 +12,7 @@ class Program
         double[] voti = new double[nVoti];
         int[] pesi = new int[nVoti];
 
-        Random rnd = new Random();
-        for (int i = 0; i < nVoti; i++)
-        {
-            voti[i] = rnd.Next(0, 11);
-            pesi[i] = rnd.Next(0, 101);
-        }
-
-
+        CaricaVettori(ref voti, ref pesi, nVoti);
 
         StampaVotiPesi(voti, pesi, nVoti);
         Console.ReadLine();
@@ -31,8 +24,17 @@ class Program
         Console.WriteLine("Voti e Pesi:");
         for (int i = 0; i < nVoti; i++)
         {
-            Console.WriteLine($"Voto: {voti[i]}, Peso: {pesi[i]}");
+            Console.WriteLine($"Voto: {voti[i]} - Peso: {pesi[i]}");
         }
     }
 
-}
+        static void CaricaVettori(ref double[] voti, ref int[] pesi, int nVoti)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < nVoti; i++)
+            {
+                voti[i] = rnd.Next(1, 11);
+                pesi[i] = rnd.Next(0, 101);
+            }
+        }
+    }
