@@ -14,7 +14,15 @@ class Program
 
         CaricaVettori(ref voti, ref pesi, nVoti);
         StampaVotiPesi(voti, pesi, nVoti);
-        
+        StampaVotiDispariMaggiori4(ref voti, ref pesi, nVoti);
+
+        double max = 0, min = 10; 
+        int posmax = 0, posmin = 0;
+        double media = MediaPonderata(voti, pesi, nVoti, ref max, ref posmax, ref min, ref posmin);
+        Console.WriteLine($"\nMedia Ponderata: {media}");  
+        Console.WriteLine($"Voto massimo: {max} - Posizione: {posmax}");
+        Console.WriteLine($"Voto minimo: {min} - Posizione: {posmin}");
+
         Console.ReadLine();
 
     }
@@ -37,6 +45,42 @@ class Program
             pesi[i] = rnd.Next(0, 101);
         }
     }
-    
+    static void StampaVotiDispariMaggiori4(ref double[] voti, ref int[] pesi, int nVoti)
+    {
+        Console.WriteLine("\nVoti maggiori di 4 in posizione dispari: ");
+        for (int i = 0; i < nVoti; i++)
+        {
+            if (voti[i] > 4 && i % 2 == 0) // si verifica se il voto in posizione i è maggiore di 4 e se la posizione è dispari
+            {
+                Console.WriteLine($"Voto: {voti[i]} - Peso: {pesi[i]}");
+            }
+        }
+    }
+    static double MediaPonderata(double[] voti, int[] pesi, int nVoti, ref double max, ref int posmax, ref double min, ref int posmin)
+    {
+        double sommaVoti = 0;
+        double sommaPonderata = 0;
+
+        for (int i = 0; i < nVoti; i++)
+        {
+            sommaVoti += voti[i] * pesi[i];
+            sommaPonderata += pesi[i];
+
+            if (voti[i] > max)
+            {
+                max = voti[i]; //andimao ad aggiornare il valore massimo e la sua posizione
+                posmax = i;
+            }
+
+            if (voti[i] < min)
+            {
+                min = voti[i];//andimao ad aggiornare il valore minimo e la sua posizione
+                posmin = i;
+            }
+        }
+
+        return sommaVoti / sommaPonderata;  //media
+    }
+
 
 }
