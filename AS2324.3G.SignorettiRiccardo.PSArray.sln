@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS2324.3G.SignorettiRiccardo.PSArray", "AS2324.3G.SignorettiRiccardo.PSArray\AS2324.3G.SignorettiRiccardo.PSArray.csproj", "{B7F1E1BA-CF64-490B-8EB8-1AF176362BFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7F1E1BA-CF64-490B-8EB8-1AF176362BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F1E1BA-CF64-490B-8EB8-1AF176362BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F1E1BA-CF64-490B-8EB8-1AF176362BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F1E1BA-CF64-490B-8EB8-1AF176362BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F58535D5-EFCF-4C3C-BC2B-0944F04D4C1D}
+	EndGlobalSection
+EndGlobal
