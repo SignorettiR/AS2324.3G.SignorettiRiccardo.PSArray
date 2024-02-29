@@ -24,7 +24,11 @@ class Program
         Console.WriteLine($"Voto minimo: {min} - Posizione: {posmin}");
         Console.WriteLine("Inserisci un voto:");
         double voto = Convert.ToDouble(Console.ReadLine());
-        ElencoVotiNellIntorno(voti, pesi, nVoti, voto); 
+        ElencoVotiNellIntorno(voti, pesi, nVoti, voto);
+        OrdinaPerVoto(ref voti, ref pesi, nVoti);
+        Console.WriteLine("\nVoti e pesi dopo l'ordinamento:");
+        StampaVotiPesi(voti, pesi, nVoti);
+
         Console.ReadLine();
 
     }
@@ -43,7 +47,7 @@ class Program
         Random rnd = new Random();
         for (int i = 0; i < nVoti; i++)
         {
-            voti[i] = rnd.Next(1, 11); //si mette 11 e non 10 perche il random non considera l'ultimo numero (non è compreso)
+            voti[i] = rnd.NextDouble() * 10 +1; //si mette 11 e non 10 perche il random non considera l'ultimo numero (non è compreso)
             pesi[i] = rnd.Next(0, 101);
         }
     }
@@ -94,6 +98,27 @@ class Program
                 Console.WriteLine($"Voto: {voti[i]}, Peso: {pesi[i]}");
             }
         }
-    } 
+    }
+    static void OrdinaPerVoto(ref double[] voti, ref int[] pesi, int nVoti)
+    {
+        for (int i = 0; i < nVoti - 1; i++)
+        {
+            for (int j = 0; j < nVoti - i - 1; j++)
+            {
+                if (voti[j] > voti[j + 1])
+                {
+                    double tempVoto = voti[j];
+                    voti[j] = voti[j + 1];
+                    voti[j + 1] = tempVoto;
+
+                    
+                    int tempPeso = pesi[j];
+                    pesi[j] = pesi[j + 1];
+                    pesi[j + 1] = tempPeso;
+                }
+            }
+        }
+    }
+
 
 }
